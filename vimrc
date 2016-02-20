@@ -1,0 +1,422 @@
+"-------------------------------------------------------------------------------
+" Skip VIM settings (version 7 or higher)
+"
+" using plugins:
+"       bufexplorer - exploring buffers
+"       AddIfndefGuard - adding header guard
+"       omnicppcomplete - autocomplete word in structures and etc...
+"       taglist - tags browsing
+"       vcscommand - version control
+"       vimcu - comments (simple, but usefull)
+"       keys a la windows :)
+"       manpageview - viewing man, info pages
+"       yate - useful thing 
+"       supertab - autocomplete words
+"------------------------------------------------------------------------------
+" My 
+":let loaded_project = 1
+
+
+
+" When started as "evim", evim.vim will already have done these settings.
+if v:progname =~? "evim"
+  finish
+endif
+
+
+"------------------------------------------------------------------------
+"                    Базовые настройки для редактора
+"------------------------------------------------------------------------
+
+
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+" Включаем несовместимость настроек с Vi (ибо Vi нам и не понадобится).
+set nocompatible
+
+" Make sure you put this _before_ the ":syntax enable" command,
+" otherwise the colors will already have been set.
+
+" Размер табуляции по умолчанию
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+" Преобразование Tab в пробелы
+" Setting 'expandtab' does not affect any existing tabs.  In other words, any
+" tabs in the document remain tabs.  If you want to convert tabs to spaces,
+" use the ":retab" command.  Use these commands: >
+"
+"   :set expandtab
+"   :%retab
+set expandtab
+
+" Выключаем надоедливый "звонок"
+set noerrorbells
+set novisualbell
+set t_vb=
+
+set virtualedit=all
+
+" allow to use backspace instead of "x"
+" set backspace=indent,eol,start whichwrap+=<,>,[,]
+set backspace=indent,eol,start
+
+" Включаем "умные" отступы ( например, автоотступ после {)
+set smartindent
+
+" automatically save buffers when moving between
+set autowrite
+
+" Никаких копий или своп файлов - надо использовать сервер контроля версий
+set nobackup
+set noswapfile
+
+" keep 1000 lines of command line history
+set history=1000
+
+" show the cursor position all the time
+set ruler
+
+" display incomplete commands
+set showcmd
+
+" do incremental searching
+set incsearch
+
+" Включаем нумерацию строк
+set number
+
+" The screen will not be redrawn while executing macros,
+" registers and other commands that have not been typed.
+" Also, updating the window title is postponed.
+set lazyredraw
+
+" Когда выключена нумерация строк или даже с ней, не совсем удобно,
+" что редактируемый текст прилипает к левому краю окна вима.
+" Проблему эту можно решить, сделав видимой колонку фолдинга:
+set foldcolumn=0
+
+" Поддержка мыши
+set mouse=a
+set mousemodel=popup
+
+" Не выгружать буфер, когда переключаемся на другой
+" Это позволяет редактировать несколько файлов в один и тот же момент без необходимости сохранения каждый раз
+" когда переключаешься между ними
+set hidden
+
+
+" показывать подробный вывод в браузере файлов
+let g:netrw_longlist=1
+
+" tree listing
+let g:netrw_liststyle=3
+
+" открывать окно браузера файлов в том же самом окне
+let g:netrw_browse_split=0
+
+let g:netrw_keepdir=1
+
+" спрятать скрытые файлы
+let g:netrw_list_hide='\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_hide=1
+
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=utf-8,cp1251,cp866,koi8-r
+
+" Формат строки состояния
+set laststatus=2
+set statusline=
+set statusline+=%F\                                                     " full path to the file in the buffer
+set statusline+=%y%m%r[%{&fileencoding}][%L]                            " status flags
+set statusline+=%<[%{strftime(\"%d.%m.%y\",getftime(expand(\"%:p\")))}] " file modificate date
+set statusline+=%k%=%o\ \ \                                   " byte offset
+set statusline+=%k%=%-14.(%l,%c%)\                                      " cursor position
+set statusline+=%P                                                      " percentage through file of displayed window
+
+" отключаем replace mode
+map R <Esc>
+imap <Ins> <Esc>i
+
+" Fix <Enter> for comment
+set fo+=cr
+
+" Опции сесссий
+set sessionoptions-=options
+set sessionoptions=curdir,buffers,tabpages
+map <F1> :mksession!<cr>
+imap <F1> <esc>:mksession!<cr>i
+let g:SessionMgr_AutoManage = 0
+
+
+"------------------------------------------------------------------------
+"                          Горячие клавишы
+"------------------------------------------------------------------------
+
+" Пробел в нормальном режиме перелистывает страницы
+nmap <Space> <PageDown>
+
+" F5 bufexplorer
+"nmap <C-F5> <Esc>:BufExplorer<cr>
+"vmap <C-F5> <esc>:BufExplorer<cr>
+"imap <C-F5> <esc>:BufExplorer<cr>
+
+" Copy on <cr> in visual mode 
+vmap <cr> y
+
+" F5 - разделить горизонтально
+nmap <F5> <C-w>s
+vmap <F5> <esc><C-w>s
+imap <F5> <esc><C-w>si
+
+" Shift+F5 - разделить вертикально
+nmap <S-F5> <C-w>v
+vmap <S-F5> <esc><C-w>v
+imap <S-F5> <esc><C-w>vi
+
+" Tab - смена окон
+nmap <Tab> <C-w>w
+
+" F6 - предыдущий буфер
+nmap <F6> :bp<cr>
+vmap <F6> <esc>:bp<cr>
+imap <F6> <esc>:bp<cr>i
+
+" F7 - следующий буфер
+nmap <F7> :bn<cr>
+vmap <F7> <esc>:bn<cr>
+imap <F7> <esc>:bn<cr>i 
+
+" F9 - "make" команда
+map <F9> :make<cr>
+vmap <F9> <esc>:make<cr>i
+imap <F9> <esc>:make<cr>i
+
+" F8 - удалить буфер
+map <F8> :bd<cr>
+vmap <F8> <esc>:bd<cr>
+imap <F8> <esc>:bd<cr>
+
+" F11 - показать окно Taglist
+"map <F11> :TlistToggle<cr>
+"vmap <F11> <esc>:TlistToggle<cr>
+"imap <F11> <esc>:TlistToggle<cr>
+
+" F12 - обозреватель файлов
+map <F12> :Ex<cr>
+vmap <F12> <esc>:Ex<cr>i
+imap <F12> <esc>:Ex<cr>i
+
+" найти слово под курсором
+"map <S-F8> :vim <cword> **/*.c **/*.h **/*.S<cr>
+"imap <S-F8> <esc>:vim <cword> **/*.c **/*.h **/*.S<cr>
+
+" header guard
+"map <S-F4> :call AddIfndefGuard()<CR>
+"imap <S-F4> <ESC>:call AddIfndefGuard()<CR>i
+
+" F2 - быстрое сохранение
+map <F2> <esc>:w<cr>
+imap <F2> <esc>:w<cr>li
+
+" Shift + F2 - сохранение всех файлов
+map <S-F2> <esc>:wa<cr>
+imap <S-F2> <esc>:wa<cr>i
+
+" вкл/выкл отображения найденных соответствий
+imap <S-F1> <Esc>:set<Space>hls!<CR>a
+nmap <S-F1> :set<Space>hls!<CR>
+
+" более привычный PgUp & PgDn
+map <PageUp> <C-u><C-u>
+imap <PageUp> <C-o><C-u><C-o><C-u>
+map <PageDown> <C-d><C-d>
+imap <PageDown> <C-o><C-d><C-o><C-d>
+
+map <M-Left> :echo "It works!"<cr>
+imap <M-Left> <Esc>bi
+map <M-Right> w
+imap <M-Right> <Esc>wi
+
+
+" С-q - выход из Vim
+map <C-Q> <Esc>:qa<cr>
+imap <C-Q> <Esc>:qa<cr>
+
+" 'умный' Home
+nmap <Home> ^
+imap <Home> <Esc>I
+
+" Some people find spaces and tabs at the end of a line useless, wasteful, and
+" ugly.  To remove whitespace at the end of every line, execute the following
+" command: (c) vim help
+" удаляем лишние пробелы, табы в конце строк
+
+map <S-F7> :%s/\s\+$//<cr>
+imap <S-F7> <esc>:%s/\s\+$//<cr>i
+
+
+" из книги "Hacking VIM"
+map <silent> <C-F2> :if &guioptions =~# 'T' <Bar>
+                         \set guioptions-=T <Bar>
+                         \set guioptions-=m <Bar>
+                    \else <Bar>
+                         \set guioptions+=T <Bar>
+                         \set guioptions+=m <Bar>
+                    \endif<CR>
+
+
+" set nolist <Bar>
+map <silent> <C-F3> <esc>:set list <cr>:set listchars=tab:>-,trail:- <cr>
+
+
+
+" < & > - делаем отступы для блоков
+" так, чтобы не пропадало выделение - удобно
+vmap < <gv
+vmap > >gv
+"-----------------------------------------------------------------------------
+
+" Настройки для SessionMgr
+let g:SessionMgr_AutoManage = 0
+let g:SessionMgr_DefaultName = "mysession"
+
+" Настройки для Tlist (показвать только текущий файл в окне навигации по  коду)
+let g:Tlist_Show_One_File = 1
+
+set completeopt-=preview
+set completeopt+=longest
+set mps-=[:]
+
+"-----------------------------------------------------------------------------
+"-----------------------------------------------------------------------------
+
+" Если ваш терминал поддерживает 256 цветов (вроде все новые
+" версии на данный момент), лучше это поставить:
+set t_Co=256
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
+endif
+ 
+
+syntax on
+
+" включить сохранение резервных копий
+set backup
+
+" сохранять умные резервные копии ежедневно
+function! BackupDir()
+  " определим каталог для сохранения резервной копии
+  let l:backupdir=$HOME.'/.vim/backup/'.
+      \substitute(expand('%:p:h'), '^'.$HOME, '~', '')
+
+  " если каталог не существует, создадим его рекурсивно
+  if !isdirectory(l:backupdir)
+    call mkdir(l:backupdir, 'p', 0700)
+  endif
+
+  " переопределим каталог для резервных копий
+  let &backupdir=l:backupdir
+
+  " переопределим расширение файла резервной копии
+  let &backupext=strftime('~%Y-%m-%d~')
+endfunction
+
+" выполним перед записью буффера на диск
+autocmd! bufwritepre * call BackupDir()
+
+" clipboard
+set clipboard=unnamed
+
+" From amoralyrr
+set autoindent
+"set nowrap
+
+" Поиск и подсветка результатов
+set showmatch 
+set nohlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Показываем табы в начале строки точками
+set listchars=tab:··
+set list
+
+set makeprg=make
+compiler gcc
+
+filetype on
+filetype plugin on
+
+map ё `
+map й q
+map ц w
+map у e
+map к r
+map е t
+map н y
+map г u
+map ш i
+map щ o
+map з p
+map х [
+map ъ ]
+map ф a
+map ы s
+map в d
+map а f
+map п g
+map р h
+map о j
+map л k
+map д l
+map ж ;
+map э '
+map я z
+map ч x
+map с c
+map м v
+map и b
+map т n
+map ь m
+map б ,
+map ю .
+map Ё ~
+map Й Q
+map Ц W
+map У E
+map К R
+map Е T
+map Н Y
+map Г U
+map Ш I
+map Щ O
+map З P
+map Х {
+map Ъ }
+map Ф A
+map Ы S
+map В D
+map А F
+map П G
+map Р H
+map О J
+map Л K
+map Д L
+map Ж :
+map Э "
+map Я Z
+map Ч X
+map С C
+map М V
+map И B
+map Т N
+map Ь M
+map Б <
+map Ю >

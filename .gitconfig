@@ -1,0 +1,25 @@
+[core]
+	editor = vim
+[user]
+	name = Maxim Fedorenko
+	email = Maxim.Fedorenko@texturacorp.com
+[merge]
+	tool = vimdiff
+[push]
+	default = matching
+[alias]
+	lga = log --graph --oneline --all --decorate
+	s = status --short
+	d = diff
+	dc = diff --cached
+	l = log --oneline --decorate
+	la = log --oneline --all --decorate
+	sh = show
+	ss = status
+	co = checkout
+	rh = reset --hard
+	m = merge --no-ff
+	mf = merge --ff-only
+	br = branch
+	lgas = log --graph --oneline --all --decorate --simplify-by-decoration
+	c = commit

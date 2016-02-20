@@ -1,0 +1,82 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+"Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+" Go lang
+Plugin 'fatih/vim-go'
+
+" Just press <C-p>
+Plugin 'kien/ctrlp.vim'
+
+" use <C-h/j/k/l> to seamlessly navigate all the splits, be they from tmux or Vim.
+Plugin 'christoomey/vim-tmux-navigator'
+
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'effkay/argonaut.vim'
+Plugin 'http://git.mfedorenko.ru/git/night-lion-vim-themebow.git'
+Plugin 'http://git.mfedorenko.ru/git/dusk-xcode-vim-themebow.git'
+Plugin 'http://git.mfedorenko.ru/git/obsidian-vim-themebow.git'
+
+" Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+Plugin 'sheerun/vim-wombat-scheme'
+
+" JavaScript
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+let g:vim_markdown_folding_disabled=1
+
+"set background=dark
+"let g:solarized_termcolors = 256
+"colorscheme solarized
+
+"colorscheme argonaut
+
+"colorscheme night-lion-vim-themebow
+"colorscheme dusk-xcode-vim-themebow
+"colorscheme obsidian-vim-themebow
+
+colorscheme wombat
+
