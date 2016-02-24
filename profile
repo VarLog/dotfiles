@@ -1,0 +1,54 @@
+# System-wide .profile for sh(1)
+
+if [ -x /usr/libexec/path_helper ]; then
+	eval `/usr/libexec/path_helper -s`
+fi
+
+if [ "${BASH-no}" != "no" ]; then
+	[ -r /etc/bashrc ] && . /etc/bashrc
+fi
+
+# MacPorts Installer addition on 2015-03-08_at_00:31:19: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
+#
+# Many programs using readline library for line editing
+# should know about this (e.g. bash)
+#
+if test -z "$INPUTRC" ; then
+    INPUTRC=/etc/inputrc
+    test -s $HOME/.inputrc && INPUTRC=$HOME/.inputrc
+    export INPUTRC
+fi
+
+#
+# Most bourn shell clones knows about this
+#
+if test -z "$PROFILEREAD" ; then
+    HISTSIZE=10000
+    export HISTSIZE
+fi
+
+#
+# Configure the default pager on SuSE Linux
+#
+if test -z "$LESS" -a -x /usr/bin/less ; then
+    LESS="-M -I -R"
+    PAGER=less
+    MORE=-sl
+    export LESS PAGER MORE
+fi
+
+#
+# Source profile extensions for certain packages, the super
+# may disable some of them by setting the sticky bit.
+#
+if test -d /etc/profile.d -a -z "$PROFILEREAD" ; then
+    for s in /etc/profile.d/*.sh ; do
+        test -r $s -a ! -k $s && . $s
+    done
+    unset s
+fi
+
+
+
