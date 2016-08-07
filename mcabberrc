@@ -1,0 +1,229 @@
+# Mcabber Configuration file
+
+set jid = varlog@jabber.ru 
+set password=passwd
+
+set resource="home"
+set disable_random_resource = 1
+
+set server = "jabber.ru"
+set port = 5222
+
+set tls = 1
+set ssl_fingerprint = SHA256:fe159cc22b3861264f823f7cc5bfb51ba805d4891a96ffeb6cfac9b58e4ea387
+set ssl_ignore_checks = 1
+ 
+set priority = 10
+set priority_away = 0
+set pinginterval = 40
+
+#set block_unsubscribed = 1
+set muc_flag_joins = 2
+set muc_print_status = 3
+
+set time_prefix=1
+
+set nickname = VarLog
+set lang = ru
+set show_status_in_buffer = 2
+set muc_print_status = 2
+# set muc_auto_whois = 1
+
+### Modules ###
+######## iq_ignore #########
+#set iq_ignore_ping = 1
+#set iq_ignore_version = 0
+#set iq_ignore_last = 1
+#set iq_ignore_time = 0
+#set iq_ignore_disco = 0  
+#module load iq_ignore
+######### killall ########## 
+#set killall_message = ААААА!!! КАЛАЙДЕР!!1111
+#module load killall
+######### version ##########
+#set iq_version_set_name = МкаBEER
+#set iq_version_set_version = 0.10 л.
+#set iq_version_set_os = VarLFS i686 Linux 2.6.32.11
+#module load version
+######### photo ############
+#set photo_savepath=~/.mcabber/photo
+#set photo_show = 1
+#module load photo 
+######### disco ############
+#module load disco
+######### xttitle ##########
+#set xttitle_short_format = 1
+#module load xttitle
+########### mpd ############
+# Host and port to connect to.
+#set mpd_host      = localhost
+#set mpd_port      = 6600
+# Password to authenticate with
+#set mpd_password = bigsecret
+# Polling for new information interval
+#set mpd_interval  = 15
+# Set to send empty song information when paused
+#set mpd_pause_is_stop = 1
+#module load mpd
+#### moods ######
+#module load mood
+#set hook-post-connect = mood bored
+##### URLs ######
+# regex
+#set url_regex = "(((https?|ftps?|nntp)://)|www[.][-a-z0-9.]+|(mailto:|news:))(%[0-9A-FА-Я]{2}|[-_.!~*';/?:@&=+$,#[:alnum:]])+"
+# Command to call to open url.
+# Url will be passed as program's first argument.
+# Other arguments for now are not defined and reserved
+# for possible future use.
+# Not required, but you can not really benefit from
+# this module without providing this.
+#set url_handler = /usr/bin/xdg-open
+
+# Do not output matched urls into log window (default
+# mcabber's builtin behaviour).
+#set url_suppress_log = 0
+
+# Maximum number of saved urls. Older will be pulled out
+# by newer ones.
+#set url_max_save = 5
+
+# Automatically do 'open' action on new urls.
+# This will not delete url, if url_delete_opened is set.
+#set url_auto_open = 0
+
+# Delete url from list after performing 'open' action
+# on it.
+#set url_delete_opened = 0
+
+#module load urlopen
+##############
+
+# Logging
+set logging = 1
+set load_logs = 1
+set logging_dir = ~/.mcabber/histo/
+set logging_ignore_status = 0
+set log_muc_conf = 1
+# set load_muc_logs = 1
+# set max_history_age = 1 
+set max_history_age = 1
+
+# Aspell
+set spell_enable = 1
+set spell_lang = ru_RU
+#set spell_lang = ru-yeyo
+#set spell_lang = en_US
+set spell_encoding = UTF-8
+
+set log_win_height = 3
+
+# Status
+set autoaway = 600
+set autonotavail = 1000
+set message = ~(ᚘᙢᙢᙢᚘ)ᘓŋ
+#set message_away = /var/log: Not found 
+set message_away = Нету
+#set message_dnd  = /var/log: Permission denied
+#set message_autoaway = /var/log: Not found
+set message_autoaway = Нету
+set roster_display_filter = ofdna
+
+set hook-pre-disconnect = status message .__.
+
+# Events
+set events_command = ~/.mcabber/eventcmd
+set eventcmd_use_nickname = 1
+
+# Beep
+set beep_on_message = 1
+
+# RawXML
+set tracelog_level = 4
+set tracelog_file = ~/.mcabber/xml.log
+
+# Proxy
+# mcabber can use a proxy if it supports the CONNECT method
+# The proxy_user/proxy_pass variables are optional.
+#set proxy_host = 127.0.0.1
+#set proxy_port = 4321
+#set proxy_user = "username"
+#set proxy_pass = "password"
+
+# Style
+set log_win_height = 5 
+set roster_hide_domain = 1
+set buddy_format = 2
+set log_display_presence = 0
+set show_status_in_buffer = 2
+set muc_flag_joins = 0
+
+# Mouse
+set use_mouse = 0
+
+# Sample color config
+set color_background   = default
+set color_general      = white
+set color_info         = white
+set color_msgin        = yellow
+set color_msgout       = cyan
+set color_msghl        = cyan
+set color_bgstatus     = yellow
+set color_status       = black
+set color_roster       = green
+set color_bgrostersel  = yellow 
+set color_rostersel    = black
+
+#alias
+alias whois   =  room whois
+alias q       =  quit
+alias c       =  connect
+alias d       =  disconnect
+alias join    =  room join
+alias kick    =  room kick
+alias leave   =  room leave I'm happy Mcabber user. Get it at mcabber.com
+alias ban     =  room ban
+alias unban   =  room unban
+alias nick    =  room nick
+alias w       =  room privmsg
+alias topic   =  room topic
+alias invite  =  room invite
+alias l       =  room names --short
+alias ll      =  room names --detail
+alias tr      =  roster toggle
+#alias to      =  roster toggle_offline
+alias tg      =  group toggle
+alias me      =  say /me
+alias time    =  request time
+alias vc      =  request vcard
+alias v       =  request version
+alias last    =  request last
+alias ping    =  request ping
+alias u       =  url list
+alias uo      =  url open
+alias ud      =  url del
+
+# binds 
+bind MK3  =  buffer up 5
+bind 550  =  buffer up 5 
+bind MK4  =  buffer down 5
+bind 545  =  buffer down 5
+bind 17   =  roster unread_next
+bind 270  =  roster toggle
+bind 269  =  roster toggle_offline
+bind 24   =  buffer purge
+bind 544  =  buffer down 5
+bind 549  =  buffer up 5
+bind 19   =  echo 
+bind 2    =  msay toggle
+bind 22   =  msay abort
+bind 385  =  group toggle
+bind 265  =  connect
+bind 266  =  room join
+bind 267  =  room leave I'm happy Mcabber user. Get it at mcabber.com
+#bind 267  =  room leave SIGSEGV
+bind 268  =  disconnect
+bind 26   =  buffer scroll_toggle
+bind 271  =  say :)
+
+# end...
+
