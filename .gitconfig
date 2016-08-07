@@ -1,25 +1,33 @@
 [core]
-	editor = vim
+    editor = vim
 [user]
-	name = Maxim Fedorenko
-	email = varlllog@gmail.com
+    name = Maxim Fedorenko
+    email = varlllog@gmail.com
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [push]
-	default = matching
+    default = matching
 [alias]
-	lga = log --graph --oneline --all --decorate
-	s = status --short
-	d = diff
-	dc = diff --cached
-	l = log --oneline --decorate
-	la = log --oneline --all --decorate
-	sh = show
-	ss = status
-	co = checkout
-	rh = reset --hard
-	m = merge --no-ff
-	mf = merge --ff-only
-	br = branch
-	lgas = log --graph --oneline --all --decorate --simplify-by-decoration
-	c = commit
+    lg = log --graph --oneline --decorate --date-order
+    lgv = log --graph --decorate --date-order
+    lga = log --graph --oneline --all --decorate --date-order
+    lgav = log --graph --all --decorate --date-order
+    s = status --short
+    d = diff
+    dc = diff --cached
+    l = log --oneline --decorate --date-order
+    la = log --oneline --all --decorate --date-order
+    sh = show
+    ss = status
+    co = checkout
+    rh = reset --hard
+    m = merge --no-ff
+    mf = merge --ff-only
+    br = branch
+    lgas = log --graph --oneline --all --decorate --simplify-by-decoration --date-order
+    c = commit -v
+    f = fetch --prune
+    a = add
+    aa = add .
+    au = add -u
+    ap = add -p
