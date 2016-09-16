@@ -8,26 +8,32 @@
 [push]
     default = matching
 [alias]
-    lg = log --graph --oneline --decorate --date-order
-    lgv = log --graph --decorate --date-order
-    lga = log --graph --oneline --all --decorate --date-order
-    lgav = log --graph --all --decorate --date-order
+    lga = log --graph --oneline --all --decorate --author-date-order
+    lgad = log --graph --oneline --all --decorate
+    lg = log --graph --oneline --decorate --author-date-order
+    lgd = log --graph --oneline --decorate
+    lgav = log --graph --all --decorate --author-date-order
+    lgv = log --graph --decorate --author-date-order
+    lgvd = log --graph --decorate
+    lgas = log --graph --oneline --all --decorate --simplify-by-decoration --author-date-order
+    l = log --oneline --decorate --author-date-order
+    la = log --oneline --all --decorate --author-date-order
+
     s = status --short
+    ss = status
+
+    sh = show
     d = diff
     dc = diff --cached
-    l = log --oneline --decorate --date-order
-    la = log --oneline --all --decorate --date-order
-    sh = show
-    ss = status
     co = checkout
     rh = reset --hard
     m = merge --no-ff
     mf = merge --ff-only
     br = branch
-    lgas = log --graph --oneline --all --decorate --simplify-by-decoration --date-order
     c = commit -v
     f = fetch --prune
+
     a = add
     aa = add .
-    au = add -u
     ap = add -p
+    au = add -u

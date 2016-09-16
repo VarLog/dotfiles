@@ -351,6 +351,8 @@ set list
 set makeprg=make
 compiler gcc
 
+au FileType gitcommit set tw=120
+
 filetype on
 filetype plugin on
 
