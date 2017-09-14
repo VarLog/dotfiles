@@ -1,15 +1,12 @@
 # System-wide .profile for sh(1)
 
 if [ -x /usr/libexec/path_helper ]; then
-	eval `/usr/libexec/path_helper -s`
+    eval `/usr/libexec/path_helper -s`
 fi
 
 if [ "${BASH-no}" != "no" ]; then
-	[ -r /etc/bashrc ] && . /etc/bashrc
+    [ -r /etc/bashrc ] && . /etc/bashrc
 fi
-
-# MacPorts Installer addition on 2015-03-08_at_00:31:19: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
 #
 # Many programs using readline library for line editing
@@ -30,7 +27,7 @@ if test -z "$PROFILEREAD" ; then
 fi
 
 #
-# Configure the default pager on SuSE Linux
+# Configure the default pager
 #
 if test -z "$LESS" -a -x /usr/bin/less ; then
     LESS="-M -I -R"
@@ -50,5 +47,5 @@ if test -d /etc/profile.d -a -z "$PROFILEREAD" ; then
     unset s
 fi
 
-
-
+# MacPorts
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
