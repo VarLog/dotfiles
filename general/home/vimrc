@@ -1,3 +1,5 @@
+" Vim Bundle
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -27,29 +29,29 @@ Plugin 'VundleVim/Vundle.vim'
 "Plugin 'user/L9', {'name': 'newL9'}
 
 " Go lang
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 
 " Just press <C-p>
-Plugin 'kien/ctrlp.vim'
+"Plugin 'kien/ctrlp.vim'
 
 " use <C-h/j/k/l> to seamlessly navigate all the splits, be they from tmux or Vim.
-Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'christoomey/vim-tmux-navigator'
 
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'effkay/argonaut.vim'
-Plugin 'http://git.mfedorenko.ru/git/night-lion-vim-themebow.git'
-Plugin 'http://git.mfedorenko.ru/git/dusk-xcode-vim-themebow.git'
-Plugin 'http://git.mfedorenko.ru/git/obsidian-vim-themebow.git'
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'effkay/argonaut.vim'
+"Plugin 'http://git.mfedorenko.ru/git/night-lion-vim-themebow.git'
+"Plugin 'http://git.mfedorenko.ru/git/dusk-xcode-vim-themebow.git'
+"Plugin 'http://git.mfedorenko.ru/git/obsidian-vim-themebow.git'
 
 " Markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+"Plugin 'godlygeek/tabular'
+"Plugin 'plasticboy/vim-markdown'
 
 Plugin 'sheerun/vim-wombat-scheme'
 
 " JavaScript
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'einars/js-beautify'
+"Plugin 'maksimr/vim-jsbeautify'
+"Plugin 'einars/js-beautify'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -66,7 +68,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-let g:vim_markdown_folding_disabled=1
+"let g:vim_markdown_folding_disabled=1
 
 "set background=dark
 "let g:solarized_termcolors = 256
