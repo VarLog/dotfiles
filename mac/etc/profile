@@ -48,4 +48,4 @@ if test -d /etc/profile.d -a -z "$PROFILEREAD" ; then
 fi
 
 # MacPorts
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+#export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
