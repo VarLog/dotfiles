@@ -50,4 +50,7 @@
     required = true
 
 [http]
-    postBuffer = 524288000
+    postBuffer = 1073741824
+
+[https]
+    postBuffer = 1073741824
