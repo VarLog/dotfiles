@@ -1,0 +1,21 @@
+
+history size 1000
+history unique 1
+
+# When pressing up or down arrows,
+# show only history entries that match what was already typed
+bind "\e[A" ed-search-prev-history
+bind "\e[B" ed-search-next-history
+bind "\e[5~" ed-search-prev-history
+bind "\e[6~" ed-search-next-history
+
+# mappings for word moving
+bind "\e[1;9D" vi-prev-word
+bind "\e[1;9C" vi-next-word
+
+bind "\e[1;5D" vi-prev-word
+bind "\e[1;5C" vi-next-word
+
+bind "\e[1~" ed-move-to-beg
+bind "\e[4~" ed-move-to-end
+
