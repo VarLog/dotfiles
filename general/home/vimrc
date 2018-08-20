@@ -1,3 +1,8 @@
+"
+" highlight current line and column
+set cursorline
+set cursorcolumn
+
 " Vim Bundle
 
 set nocompatible              " be iMproved, required
