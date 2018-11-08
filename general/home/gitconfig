@@ -10,7 +10,7 @@
     tool = vimdiff
 
 [push]
-    default = matching
+    default = simple
 
 [alias]
     lga = log --graph --oneline --all --decorate --author-date-order --pretty=format:\"%C(auto)%h %d %s [%an]\"
