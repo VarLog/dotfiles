@@ -338,7 +338,7 @@ set autoindent
 "set nowrap
 
 " Поиск и подсветка результатов
-set showmatch 
+set showmatch
 set nohlsearch
 set incsearch
 set ignorecase
@@ -355,10 +355,11 @@ set list
 set makeprg=make
 compiler gcc
 
-au FileType gitcommit set tw=120
-
 filetype on
 filetype plugin on
+
+au FileType gitcommit set tw=100
+au FileType gitcommit setlocal tw=100
 
 map ё `
 map й q
