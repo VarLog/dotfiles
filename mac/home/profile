@@ -1,13 +1,34 @@
 
 # Workspace
 export PATH+=":$HOME/workspace/bin"
+#
+# Python 3.10 as default
+export PATH="/usr/local/opt/python@3.10/libexec/bin:$PATH"
+
+# Mysql client
+#export PATH="/usr/local/opt/mysql-client@5.7/bin:$PATH"
+
+# NodeJS 14
+export PATH="/usr/local/opt/node@14/bin:$PATH"
+
+# NodeJS 16
+#export PATH="/usr/local/opt/node@16/bin:$PATH"
+
+# Yarn alias
+alias y=yarn
+
+# Git alias
+alias g=git
+
+# RipGrep hidden files alias
+alias rg="rg --hidden --glob '!.git'"
 
 # Brew
 export HOMEBREW_GITHUB_API_TOKEN="empty"
 
 # MacPorts
 #export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
- 
+
 # Android
 #export PATH+=":$HOME/workspace/sdk/android-sdk-macosx/tools"
 #export PATH+=":$HOME/workspace/sdk/android-sdk-macosx/platform-tools"
